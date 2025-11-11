@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My To-Do App</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        input {
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px;
+            margin-left: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple To-Do App</h1>
+
+    <form action="/add" method="post">
+        <input type="text" name="task" placeholder="Enter a task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task }} <a href="/delete/{{ loop.index0 }}">❌</a></li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
